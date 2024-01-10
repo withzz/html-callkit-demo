@@ -8,9 +8,11 @@
         <div id="NE_local" style="display: inline-block;float: left;width:320px; height:240px">本地视图</div>
         <div id="NE_remote" style="display: inline-block;float: right;width:320px; height:240px">远端视图</div>
     </div>
+    <script src="./lib/vconsole.min.js"></script>
     <script src="./lib/index.umd.js"></script>
     <script src="./lib/NIM_Web_NIM_v9.6.1.js"></script>
     <script>
+        var vConsole = new VConsole();
         let neCall;
         const appKey = "";
         const account = "";
@@ -37,19 +39,23 @@
                     // 来电监听
                     neCall.on('onReceiveInvited', (value) => {
                         // 用户可以触发视图，比如弹起邀请页面
+                        console.log("onReceiveInvited")
                         console.log(value)
 
                     })
                     // 通话结束的回调。通话被取消、拒绝、通话中挂断，即所有导致通话结束的行为都会触发此回调
                     neCall.on('onCallEnd', (value) => {
+                        console.log("onCallEnd")
                         console.log(value)
                     })
                     // 话单回调
                     neCall.on('onRecordSend', (value) => {
+                        console.log("onRecordSend")
                         console.log(value)
                     })
                     // 主被叫加入通道的回调，通话建立后触发
                     neCall.on('onCallConnected', (value) => {
+                        console.log("onCallConnected")
                         console.log(value)
                     })
                 },
